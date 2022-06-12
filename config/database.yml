@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: randsson
+  password: 9059857
+  host: localhost
+
+development:
+  <<: *default
+  database: cpa_form_development
+
+test:
+  <<: *default
+  database: cpa_form_test
+
+production:
+  <<: *default
+  database: cpa_form_production
+  username: cpa_form
+  password: <%= ENV['CPA_FORM_DATABASE_PASSWORD'] %>
